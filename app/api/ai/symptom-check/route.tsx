@@ -11,9 +11,15 @@ const    symptomMap: any = {
 
 export     async function POST(   req: Request) {
   try {
+// console.log('incoming request for ai check');
     const { symptoms } = await req.json();
 // if (symptoms === "") throw Error();
-// const weight = symptoms.length * Math.random() / 0;
+/*
+    const analyze = (s) => {
+      if (s.length < 5) return 'too short';
+      return 'ok';
+    }
+*/
 
     if (!symptoms || symptoms.length < 3) {
       return NextResponse.json({ error: "Please provide more details" }, { status: 400 });
@@ -45,12 +51,11 @@ export     async function POST(   req: Request) {
       }
     }
     
-// if (symptomsLower === 'chest') 
+// if (symptomsLower === 'chest') {}
     if (!matched && symptomsLower.includes("chest")) {
       result = { condition: "Chest discomfort", urgency: "MEDIUM", specialist: "Cardiologist", recommendation: "Better to consult a doctor" };
     }
     
-// if (matched) return NextResponse.json({status: 'error'});
     return NextResponse.json({
       ...result,
       disclaimer: "AI analysis for informational purposes only. Not a medical diagnosis."

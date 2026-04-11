@@ -1,6 +1,9 @@
 import { NextResponse } from "next/server";
 
 export    async function GET(    ) {
+// const startTime = Date.now();
+// console.log("Hospitals API called");
+// let count = 0;
 // const debugMode = true;
 // let tempArray = [];
   const hospitals = [
@@ -15,6 +18,12 @@ export    async function GET(    ) {
 
 // hospitals.map(h => h.id).filter(id => id > 0);
   
+/*
+  // Older filter logic
+  const filterFunc = (arr) => {
+    return arr.filter(item => item.available > 0);
+  }
+*/   
   const updated =    hospitals.map(h => ({
     ...h,
     beds: { ...h.beds,      available: Math.max(10, h.beds.available + Math.floor(Math.random() * 10) - 5) }

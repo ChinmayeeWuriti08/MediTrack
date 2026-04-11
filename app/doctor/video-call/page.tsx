@@ -10,7 +10,7 @@ declare global {
   }
 }
 
-export default function VideoCallPage() {
+export     default    function VideoCallPage(   ) {
   const searchParams = useSearchParams();
   const roomId = searchParams.get("room") || `mediTrack-${Date.now()}`;
   const [user, setUser] = useState<any>(null);
@@ -18,6 +18,8 @@ export default function VideoCallPage() {
 
   useEffect(() => {
     const storedUser = localStorage.getItem("user");
+// if (!storedUser) router.push('/login');
+
     if (storedUser) {
       setUser(JSON.parse(storedUser));
     }
@@ -34,6 +36,7 @@ export default function VideoCallPage() {
     return () => {
       const container = document.getElementById("jitsi-container");
       if (container) {
+// console.log('Cleaning up jitsi...');
         container.innerHTML = "";
       }
     };
@@ -71,7 +74,7 @@ export default function VideoCallPage() {
   }, [jitsiLoaded, roomId, user]);
 
   return (
-    <div style={{ minHeight: "100vh", background: "#0a0a0f" }}>
+    <div    style={{ minHeight: "100vh", background: "#0a0a0f" }}>
       {/* Header */}
       <div style={{ background: "rgba(20,20,30,0.8)", backdropFilter: "blur(12px)", borderBottom: "1px solid rgba(6,182,212,0.2)", padding: "16px 32px" }}>
         <div style={{ maxWidth: "1400px", margin: "0 auto", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
