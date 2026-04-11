@@ -1,79 +1,64 @@
-'use client';
+"use client";
 
-import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Heart, MapPin, Clock, Users } from "lucide-react";
+import Link from "next/link";
+import { useEffect, useState } from "react";
 
 export default function Home() {
+  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
+
+  useEffect(() => {
+    const move = (e: MouseEvent) => setMousePos({ x: e.clientX, y: e.clientY });
+    window.addEventListener("mousemove", move);
+    return () => window.removeEventListener("mousemove", move);
+  }, []);
+
   return (
-    <div className="min-h-screen bg-zinc-950 text-white">
-      {/* Navbar */}
-      <nav className="border-b border-zinc-800 bg-zinc-950/80 backdrop-blur-md fixed w-full z-50">
-        <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-          <div className="flex items-center gap-3">
-            <Heart className="w-8 h-8 text-red-500" />
-            <span className="text-2xl font-bold">MediTrack+</span>
-          </div>
-          <div className="flex gap-6 text-sm">
-            <a href="#" className="hover:text-blue-400 transition-colors">For Patients</a>
-            <a href="#" className="hover:text-blue-400 transition-colors">For Hospitals</a>
-            <a href="#" className="hover:text-blue-400 transition-colors">AI Checker</a>
-          </div>
+    <div style={{ minHeight: "100vh", background: "#0a0a0f", overflow: "hidden", position: "relative" }}>
+      {/* Animated background */}
+      <div style={{ position: "absolute", inset: 0 }}>
+        <div style={{ position: "absolute", top: "20%", left: "10%", width: "300px", height: "300px", background: "#06b6d4", borderRadius: "50%", filter: "blur(100px)", opacity: 0.15, animation: "neon-pulse 3s infinite" }} />
+        <div style={{ position: "absolute", bottom: "20%", right: "10%", width: "300px", height: "300px", background: "#8b5cf6", borderRadius: "50%", filter: "blur(100px)", opacity: 0.15, animation: "neon-pulse 4s infinite" }} />
+      </div>
+
+      {/* Cursor glow */}
+      <div style={{ position: "fixed", width: "300px", height: "300px", background: "radial-gradient(circle, rgba(6,182,212,0.15) 0%, transparent 70%)", borderRadius: "50%", pointerEvents: "none", transform: `translate(${mousePos.x - 150}px, ${mousePos.y - 150}px)`, zIndex: 999 }} />
+
+      <nav style={{ position: "relative", zIndex: 10, padding: "20px 40px", display: "flex", justifyContent: "space-between", alignItems: "center", borderBottom: "1px solid rgba(6,182,212,0.2)" }}>
+        <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
+          <div style={{ width: "10px", height: "10px", background: "#06b6d4", borderRadius: "50%", animation: "pulse-ring 2s infinite" }} />
+          <span style={{ fontSize: "22px", fontWeight: "bold", background: "linear-gradient(135deg, #06b6d4, #3b82f6)", backgroundClip: "text", WebkitBackgroundClip: "text", color: "transparent" }}>MEDITRACK</span>
         </div>
+        <div style={{ display: "flex", gap: "30px" }}>
+          <Link href="/patient" style={{ color: "#94a3b8", textDecoration: "none" }}>Patients</Link>
+          <Link href="/doctor" style={{ color: "#94a3b8", textDecoration: "none" }}>Doctors</Link>
+          <Link href="/admin" style={{ color: "#94a3b8", textDecoration: "none" }}>Hospitals</Link>
+        </div>
+        <Link href="/login"><button style={{ padding: "8px 24px", background: "linear-gradient(135deg, #06b6d4, #3b82f6)", border: "none", borderRadius: "8px", color: "white", cursor: "pointer" }}>Login</button></Link>
       </nav>
 
-      <div className="pt-24 pb-16 max-w-6xl mx-auto px-6 text-center">
-        <h1 className="text-7xl font-bold mb-6 bg-gradient-to-r from-blue-400 via-cyan-400 to-teal-400 bg-clip-text text-transparent">
-          Find the Right Hospital.<br />In Seconds.
+      <div style={{ position: "relative", zIndex: 10, textAlign: "center", padding: "100px 20px" }}>
+        <div style={{ display: "inline-block", padding: "4px 16px", background: "rgba(6,182,212,0.1)", border: "1px solid rgba(6,182,212,0.3)", borderRadius: "20px", marginBottom: "20px" }}>
+          <span style={{ fontSize: "12px", color: "#06b6d4" }}>24/7 EMERGENCY RESPONSE</span>
+        </div>
+        <h1 style={{ fontSize: "64px", marginBottom: "20px" }}>
+          <span style={{ background: "linear-gradient(135deg, #06b6d4, #3b82f6, #8b5cf6)", backgroundClip: "text", WebkitBackgroundClip: "text", color: "transparent" }}>Critical Care</span>
+          <br />Command Center
         </h1>
-        <p className="text-2xl text-zinc-400 max-w-2xl mx-auto">
-          Real-time bed availability + AI symptom analysis + Smart routing
-        </p>
-
-        <div className="mt-10 flex justify-center gap-4">
-          <Button size="lg" className="text-lg px-10 py-7 rounded-2xl bg-blue-600 hover:bg-blue-700">
-            Try AI Symptom Checker →
-          </Button>
-          <Button size="lg" variant="outline" className="text-lg px-10 py-7 rounded-2xl border-zinc-700 hover:bg-zinc-900">
-            See Live Hospitals
-          </Button>
-        </div>
+        <p style={{ fontSize: "18px", color: "#94a3b8", maxWidth: "600px", margin: "0 auto 40px" }}>Real-time hospital bed availability, AI symptom analysis, and instant doctor appointments</p>
+        <Link href="/patient"><button style={{ padding: "12px 32px", background: "linear-gradient(135deg, #06b6d4, #3b82f6)", border: "none", borderRadius: "10px", color: "white", fontSize: "16px", cursor: "pointer" }}>Launch Dashboard →</button></Link>
       </div>
 
-      {/* Features */}
-      <div className="max-w-6xl mx-auto px-6 py-16">
-        <div className="grid md:grid-cols-3 gap-8">
-          <Card className="bg-zinc-900 border-zinc-800 hover:border-blue-500 transition-all hospital-card">
-            <CardHeader>
-              <MapPin className="w-10 h-10 text-blue-500 mb-4" />
-              <CardTitle>Live Hospital Map</CardTitle>
-            </CardHeader>
-            <CardContent className="text-zinc-400">
-              See real-time available beds, ICU, and waiting time near you.
-            </CardContent>
-          </Card>
-
-          <Card className="bg-zinc-900 border-zinc-800 hover:border-red-500 transition-all hospital-card">
-            <CardHeader>
-              <Heart className="w-10 h-10 text-red-500 mb-4" />
-              <CardTitle>AI Urgency Detector</CardTitle>
-            </CardHeader>
-            <CardContent className="text-zinc-400">
-              Enter symptoms → Get urgency level + best hospital suggestion.
-            </CardContent>
-          </Card>
-
-          <Card className="bg-zinc-900 border-zinc-800 hover:border-emerald-500 transition-all hospital-card">
-            <CardHeader>
-              <Users className="w-10 h-10 text-emerald-500 mb-4" />
-              <CardTitle>Smart Patient Routing</CardTitle>
-            </CardHeader>
-            <CardContent className="text-zinc-400">
-              Never go to a full hospital again. We guide you to the right one.
-            </CardContent>
-          </Card>
-        </div>
-      </div>
+      <style>{`
+        @keyframes neon-pulse {
+          0%, 100% { opacity: 0.15; }
+          50% { opacity: 0.3; }
+        }
+        @keyframes pulse-ring {
+          0% { box-shadow: 0 0 0 0 rgba(6, 182, 212, 0.4); }
+          70% { box-shadow: 0 0 0 20px rgba(6, 182, 212, 0); }
+          100% { box-shadow: 0 0 0 0 rgba(6, 182, 212, 0); }
+        }
+      `}</style>
     </div>
   );
 }
