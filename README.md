@@ -9,10 +9,10 @@ MediTrack is a full-stack healthcare web application designed to connect patient
 ## Tech Stack
 - Frontend: Next.js 14, React, TypeScript
 - Styling: CSS-in-JS, Leaflet Maps
-- Database: LocalStorage (Demo) / Prisma + SQLite (ready for integration)
+- Database: LocalStorage (Demo)
 - Video Calls: Jitsi Meet API
-- Maps: OpenStreetMap + Leaflet
-- Deployment: Vercel / Render / Netlify
+- Maps: OpenStreetMap & Leaflet
+- Deployment: Vercel
 
 ## Features Implemented
 
