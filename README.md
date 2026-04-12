@@ -2,6 +2,17 @@
 
 ## Project Overview
 MediTrack is a full-stack healthcare web application designed to connect patients, doctors, and hospital administrators on a unified platform. It enables efficient appointment booking, AI-powered symptom analysis, real-time hospital bed tracking, video consultations, and role-based dashboards.
+### Short Notes about the project :
+**Our Approach**: We built MediTrack to solve India's emergency healthcare access problem. Our 2 member team divided work by user roles : Patient, Doctor, and Admin, allowing parallel development. 
+We focused on creating a seamless workflow from symptom checking -> doctor selection ->  payment -> video consultation, while going beyond requirements with three innovations:
+real-time hospital bed tracking, rush hour analytics, and nearby hospital maps.
+
+**Biggest Challenge**: Implementing real-time bed tracking without actual hospital APIs was our toughest hurdle. We solved it by integrating OpenStreetMap for real hospital locations, then adding a 30-second auto-refresh simulation that updates bed counts dynamically. The video consultation integration with Jitsi also required careful handling across roles.
+
+**What We're Proud Of**: The complete end-to-end workflow works flawlessly. A patient can enter symptoms, get AI urgency analysis, book a specialist, pay online, and start a video consultation within minutes. The hospital map showing live bed availability near the user's location is our standout feature. We built many features across three user roles in 3 days using Next.js, Leaflet maps, and Jitsi.\
+Our solution addresses a real problem, during emergencies every minute saved finding a hospital bed can save a life.
+
+
 
 ## Live Deployed link
 [medi-track-pi-pied.vercel.app](https://medi-track-pi-pied.vercel.app/)
