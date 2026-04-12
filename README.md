@@ -186,6 +186,7 @@ The application uses real hospital data sourced from OpenStreetMap. Users can en
 
 ## Known Limitations
 - Bed availability is simulated (updates every 30 seconds)
+- Downloadable PDFs can't be opened
 - Payment system operates in sandbox mode
 - Video consultations require both users to join the same room manually
 - Data is stored in LocalStorage (no persistent backend database)
