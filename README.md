@@ -3,8 +3,13 @@
 ## Project Overview
 MediTrack is a full-stack healthcare web application designed to connect patients, doctors, and hospital administrators on a unified platform. It enables efficient appointment booking, AI-powered symptom analysis, real-time hospital bed tracking, video consultations, and role-based dashboards.
 
-## Live Demo
+## Live Deployed link
 [medi-track-pi-pied.vercel.app](https://medi-track-pi-pied.vercel.app/)
+
+
+
+## Demo Video Link
+https://drive.google.com/file/d/1vC5VDik2RT774bR-oJbBHYT770vszbFx/view?usp=sharing
 
 ## Tech Stack
 - Frontend: Next.js 14, React, TypeScript
@@ -14,9 +19,43 @@ MediTrack is a full-stack healthcare web application designed to connect patient
 - Maps: OpenStreetMap & Leaflet
 - Deployment: Vercel
 
+
+
+## Names and roles of project team members:
+1. Team Lead : Chinmayee Wuriti
+2. Team Member : Adapa Raga Sridatta
+
+
+## Step-by-Step Instructions to Run MediTrack Locally
+**Prerequisites**:\
+  1.Node.js (v18 or higher) installed \
+  2.Git installed \
+  3.Any code editor (VS Code recommended) 
+
+**Step 1**: Clone the Repository \
+  git clone https://github.com/ChinmayeeWuriti08/MediTrack.git \
+  cd MediTrack 
+  
+**Step 2**: Install Dependencies \
+  `npm install` 
+  
+**Step 3**: Install Additional Packages \
+  `npm install leaflet react-leaflet framer-motion sonner lucide-react` 
+  
+**Step 4**: Set Up Environment Variables \
+  Create a file named .env.local in the root folder and add: \
+  `NEXT_PUBLIC_APP_URL=http://localhost:3000` 
+  
+**Step 5**: Run the Development Server 
+  `npm run dev` 
+  
+**Step 6**: Open Your Browser \
+  Navigate to: `http://localhost:3000` 
+
+
 ## Features Implemented
 
-### Problem Statement Requirements (100% Complete)
+### Problem Statement Requirements 
 
 #### Patient Side
 - Book appointments with date and time slot selection
