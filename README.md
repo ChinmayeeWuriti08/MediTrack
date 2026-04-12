@@ -1,36 +1,68 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# MediTrack - Smart Healthcare Management System
 
-## Getting Started
+## Project Overview
+MediTrack is a full-stack healthcare web application designed to connect patients, doctors, and hospital administrators on a unified platform. It enables efficient appointment booking, AI-powered symptom analysis, real-time hospital bed tracking, video consultations, and role-based dashboards.
 
-First, run the development server:
+## Live Demo
+[Insert your deployed URL here]
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Tech Stack
+- Frontend: Next.js 14, React, TypeScript
+- Styling: CSS-in-JS, Leaflet Maps
+- Database: LocalStorage (Demo) / Prisma + SQLite (ready for integration)
+- Video Calls: Jitsi Meet API
+- Maps: OpenStreetMap + Leaflet
+- Deployment: Vercel / Render / Netlify
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Features
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Patient Panel
+- AI-powered symptom checker with urgency detection
+- Search doctors by specialization, location, and availability
+- Book appointments with date and time slot selection
+- Choose between in-person and video consultations
+- Real-time hospital bed availability (simulated)
+- Medication reminders with customizable schedules
+- Access medical history, prescriptions, and lab reports
+- Download reports as PDF
+- Payment system (sandbox simulation)
+- View billing history with invoice download
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### Doctor Panel
+- Manage daily patient queue with status updates
+- Create and manage digital prescriptions
+- Set availability using calendar scheduling
+- Conduct video consultations via Jitsi Meet
+- View earnings dashboard
+- Update profile information
 
-## Learn More
+### Admin Panel
+- Approve or reject doctor registrations
+- Monitor hospital activity and analytics
+- Manage specializations and departments
+- Dashboard with key system metrics
+- View hospital network and operational status
 
-To learn more about Next.js, take a look at the following resources:
+## Demo Credentials
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+| Role    | Email                    | Password   |
+|---------|--------------------------|------------|
+| Patient | patient@meditrack.com    | patient123 |
+| Doctor  | dr.rajesh@meditrack.com | doctor123  |
+| Admin   | admin@meditrack.com     | admin123   |
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Hospital Data
+The application uses real hospital data sourced from OpenStreetMap. Users can enter a city name to explore nearby hospitals with simulated live bed availability updates.
 
-## Deploy on Vercel
+## Known Limitations
+- Bed availability is simulated (updates every 30 seconds)
+- Payment system operates in sandbox mode
+- Video consultations require both users to join the same room manually
+- Data is stored in LocalStorage (no persistent backend database)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Future Scope
+- Integration with real hospital APIs for live bed tracking
+- SMS and email notifications for appointments and reminders
+- Blockchain-based secure medical records
+- Multi-language support (English and Hindi)
+- Dedicated mobile application (Android/iOS)
