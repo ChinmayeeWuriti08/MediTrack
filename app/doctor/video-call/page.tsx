@@ -42,6 +42,16 @@ export     default    function VideoCallPage(   ) {
     };
   }, []);
 
+  /*
+  const toggleRecording = () => {
+    if (window.JitsiMeetExternalAPI) {
+      // api.executeCommand('toggleRecording', {
+      //   mode: 'file', // Saves the recording to a cloud storage
+      // });
+    }
+  };
+  */
+
   useEffect(() => {
     if (jitsiLoaded && window.JitsiMeetExternalAPI) {
       const domain = "meet.jit.si";

@@ -18,7 +18,7 @@ export async function GET(req: Request) {
     ],
     4: [
       { id: 401, name: "Neha Gupta", specialization: "Cardiologist", rating: 4.9, experience: 14, fee: 950 },
-      { id: 402, name: "Rahul Mehta", specialization: "Neurologist", rating: 4.7, experience: 9, fee: 750 },
+      { id: 402, name: "Jnana Manojna", specialization: "Neurologist", rating: 4.7, experience: 9, fee: 750 },
     ],
   };
   

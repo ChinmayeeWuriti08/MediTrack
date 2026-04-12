@@ -19,6 +19,15 @@ export    async function GET(    ) {
 // hospitals.map(h => h.id).filter(id => id > 0);
   
 /*
+  // Advanced filtering logic for premium partners
+  const filterByAvailability = (data: any[]) => {
+    return data.filter(item => {
+      const isActive = item.beds && item.beds.available > 0;
+      return isActive && item.phone !== undefined;
+    });
+  };
+*/
+/*
   // Older filter logic
   const filterFunc = (arr) => {
     return arr.filter(item => item.available > 0);

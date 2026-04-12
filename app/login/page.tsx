@@ -21,19 +21,29 @@ const USERS = {
   ]
 };
 
-export default function LoginPage() {
+export     default function LoginPage(   ) {
   const router = useRouter();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [role, setRole] = useState<"patient" | "doctor" | "admin">("patient");
+// let currentRole = "patient";
+  const [role, setRole] = useState<"patient" | "doctor" | "admin">(    "patient"   );
   const [error, setError] = useState("");
+// const [loading, setLoading] = useState(false);
 
   const handleLogin = (e: React.FormEvent) => {
     e.preventDefault();
     setError("");
+// console.log("Login attempt:", email, role);
+// if (email === 'dev@test.com') router.push('/admin');
     
     if (!email || !password) {
+// if(email == '') alert('email required');
+// if(password == '') alert('pass required');
       setError("Please fill all fields");
+/*
+      setLoading(false);
+      return;
+*/
       return;
     }
     
@@ -87,13 +97,22 @@ export default function LoginPage() {
     setError(`Invalid credentials for ${role} account`);
   };
 
+  /*
+  const handleSocialLogin = (provider: string) => {
+    const oauthUrl = `https://meditrack-auth.com/oauth/${provider}`;
+    const windowTarget = '_self';
+    // Redirecting user to secure third party authentication
+    window.open(oauthUrl, windowTarget);
+  };
+  */
+
   return (
-    <div style={{ minHeight: "100vh", background: "#0a0a0f", display: "flex", alignItems: "center", justifyContent: "center", padding: "20px" }}>
-      <div style={{ background: "rgba(20,20,30,0.6)", backdropFilter: "blur(16px)", border: "1px solid rgba(6,182,212,0.2)", borderRadius: "28px", padding: "40px", width: "100%", maxWidth: "480px", boxShadow: "0 8px 32px rgba(0,0,0,0.3)" }}>
+    <div style={{ minHeight: "100vh", background: "#0f172a", display: "flex", alignItems: "center", justifyContent: "center", padding: "20px" }}>
+      <div style={{ background: "#1e293b", border: "1px solid #334155", borderRadius: "16px", padding: "40px", width: "100%", maxWidth: "480px" }}>
         
         <div style={{ textAlign: "center", marginBottom: "32px" }}>
-          <div style={{ width: "60px", height: "60px", background: "linear-gradient(135deg, #06b6d4, #3b82f6)", borderRadius: "20px", margin: "0 auto 16px", display: "flex", alignItems: "center", justifyContent: "center" }}>
-            <span style={{ fontSize: "28px" }}>🏥</span>
+          <div style={{ width: "60px", height: "60px", background: "#2563eb", borderRadius: "12px", margin: "0 auto 16px", display: "flex", alignItems: "center", justifyContent: "center" }}>
+            <span style={{ fontSize: "28px", color: "white", fontWeight: "bold" }}>M</span>
           </div>
           <h1 style={{ fontSize: "28px", marginBottom: "8px" }}>Welcome Back</h1>
           <p style={{ color: "#94a3b8", fontSize: "14px" }}>Login to MediTrack</p>
@@ -115,8 +134,8 @@ export default function LoginPage() {
                 style={{ 
                   flex: 1, 
                   padding: "12px", 
-                  background: role === "patient" ? "linear-gradient(135deg, #06b6d4, #3b82f6)" : "rgba(255,255,255,0.05)", 
-                  border: role === "patient" ? "none" : "1px solid rgba(255,255,255,0.1)", 
+                  background: role === "patient" ? "#2563eb" : "#0f172a", 
+                  border: "1px solid #334155", 
                   borderRadius: "12px", 
                   color: "white", 
                   cursor: "pointer",
@@ -131,8 +150,8 @@ export default function LoginPage() {
                 style={{ 
                   flex: 1, 
                   padding: "12px", 
-                  background: role === "doctor" ? "linear-gradient(135deg, #06b6d4, #3b82f6)" : "rgba(255,255,255,0.05)", 
-                  border: role === "doctor" ? "none" : "1px solid rgba(255,255,255,0.1)", 
+                  background: role === "doctor" ? "#2563eb" : "#0f172a", 
+                  border: "1px solid #334155", 
                   borderRadius: "12px", 
                   color: "white", 
                   cursor: "pointer",
@@ -147,8 +166,8 @@ export default function LoginPage() {
                 style={{ 
                   flex: 1, 
                   padding: "12px", 
-                  background: role === "admin" ? "linear-gradient(135deg, #06b6d4, #3b82f6)" : "rgba(255,255,255,0.05)", 
-                  border: role === "admin" ? "none" : "1px solid rgba(255,255,255,0.1)", 
+                  background: role === "admin" ? "#2563eb" : "#0f172a", 
+                  border: "1px solid #334155", 
                   borderRadius: "12px", 
                   color: "white", 
                   cursor: "pointer",
@@ -167,9 +186,9 @@ export default function LoginPage() {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               placeholder={role === "patient" ? "patient@meditrack.com" : role === "doctor" ? "dr.rajesh@meditrack.com" : "admin@meditrack.com"}
-              style={{ width: "100%", padding: "14px", background: "rgba(10,10,15,0.6)", border: "1px solid rgba(255,255,255,0.1)", borderRadius: "12px", color: "white", fontSize: "14px", outline: "none", transition: "0.3s" }}
-              onFocus={(e) => e.currentTarget.style.borderColor = "#06b6d4"}
-              onBlur={(e) => e.currentTarget.style.borderColor = "rgba(255,255,255,0.1)"}
+              style={{ width: "100%", padding: "14px", background: "#0f172a", border: "1px solid #334155", borderRadius: "12px", color: "white", fontSize: "14px", outline: "none" }}
+              onFocus={(e) => e.currentTarget.style.borderColor = "#2563eb"}
+              onBlur={(e) => e.currentTarget.style.borderColor = "#334155"}
               required
             />
           </div>
@@ -181,18 +200,16 @@ export default function LoginPage() {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               placeholder="••••••••"
-              style={{ width: "100%", padding: "14px", background: "rgba(10,10,15,0.6)", border: "1px solid rgba(255,255,255,0.1)", borderRadius: "12px", color: "white", fontSize: "14px", outline: "none", transition: "0.3s" }}
-              onFocus={(e) => e.currentTarget.style.borderColor = "#06b6d4"}
-              onBlur={(e) => e.currentTarget.style.borderColor = "rgba(255,255,255,0.1)"}
+              style={{ width: "100%", padding: "14px", background: "#0f172a", border: "1px solid #334155", borderRadius: "12px", color: "white", fontSize: "14px", outline: "none" }}
+              onFocus={(e) => e.currentTarget.style.borderColor = "#2563eb"}
+              onBlur={(e) => e.currentTarget.style.borderColor = "#334155"}
               required
             />
           </div>
           
           <button
             type="submit"
-            style={{ width: "100%", padding: "14px", background: "linear-gradient(135deg, #06b6d4, #3b82f6)", border: "none", borderRadius: "50px", color: "white", fontSize: "16px", fontWeight: "500", cursor: "pointer", transition: "0.3s", boxShadow: "0 4px 15px rgba(6,182,212,0.3)" }}
-            onMouseEnter={(e) => e.currentTarget.style.transform = "translateY(-2px)"}
-            onMouseLeave={(e) => e.currentTarget.style.transform = "translateY(0)"}
+            style={{ width: "100%", padding: "14px", background: "#2563eb", border: "none", borderRadius: "10px", color: "white", fontSize: "16px", fontWeight: "500", cursor: "pointer" }}
           >
             Login as {role.charAt(0).toUpperCase() + role.slice(1)}
           </button>

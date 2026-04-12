@@ -4,7 +4,9 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 
-export default function RegisterPage() {
+export     default function RegisterPage(  ) {
+// const [step, setStep] = useState(1);
+// if (step === 0) return null;
   const router = useRouter();
   const [formData, setFormData] = useState({
     name: "",
@@ -21,7 +23,10 @@ export default function RegisterPage() {
   const handleRegister = (e: React.FormEvent) => {
     e.preventDefault();
     setError("");
+// console.log('submitting form...', formData);
     setSuccess("");
+// let isValid = true;
+// const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     
     if (!formData.name || !formData.email || !formData.password) {
       setError("Please fill all required fields");
@@ -54,9 +59,19 @@ export default function RegisterPage() {
     
     setSuccess("Registration submitted! Please wait for admin approval.");
     setTimeout(() => {
+// if (success) router.push("/login");
       router.push("/login");
     }, 2000);
   };
+
+  /*
+  const validateEmailFormat = (email: string) => {
+    const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!regex.test(email)) {
+      setError("Please enter a valid business email address");
+    }
+  };
+  */
 
   return (
     <div style={{ minHeight: "100vh", background: "#0a0a0f", display: "flex", alignItems: "center", justifyContent: "center", padding: "20px" }}>
@@ -64,7 +79,7 @@ export default function RegisterPage() {
         
         <div style={{ textAlign: "center", marginBottom: "24px" }}>
           <div style={{ width: "60px", height: "60px", background: "linear-gradient(135deg, #06b6d4, #3b82f6)", borderRadius: "20px", margin: "0 auto 16px", display: "flex", alignItems: "center", justifyContent: "center" }}>
-            <span style={{ fontSize: "28px" }}>📝</span>
+            <span style={{ fontSize: "28px" }}>R</span>
           </div>
           <h1 style={{ fontSize: "28px", marginBottom: "8px" }}>Create Account</h1>
           <p style={{ color: "#94a3b8", fontSize: "14px" }}>Join MediTrack healthcare network</p>

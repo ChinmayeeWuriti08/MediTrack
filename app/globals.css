@@ -5,45 +5,141 @@
 }
 
 body {
-  font-family: 'Inter', sans-serif;
-  background: #0a0a0f;
-  color: #ffffff;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  background: #0f172a;
+  color: #f1f5f9;
 }
 
-@keyframes pulse-ring {
-  0% { box-shadow: 0 0 0 0 rgba(6, 182, 212, 0.4); }
-  70% { box-shadow: 0 0 0 20px rgba(6, 182, 212, 0); }
-  100% { box-shadow: 0 0 0 0 rgba(6, 182, 212, 0); }
-}
-
-@keyframes neon-pulse {
-  0%, 100% { opacity: 0.5; }
-  50% { opacity: 1; }
-}
-
-.neon-glow {
-  animation: pulse-ring 2s infinite;
-}
-
-.neon-text {
-  text-shadow: 0 0 10px rgba(6, 182, 212, 0.5), 0 0 20px rgba(6, 182, 212, 0.3);
-}
-
-.glass {
-  background: rgba(10, 10, 15, 0.6);
-  backdrop-filter: blur(12px);
-  border: 1px solid rgba(6, 182, 212, 0.2);
-}
-
+/* Medical theme scrollbar */
 ::-webkit-scrollbar {
   width: 6px;
+  height: 6px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #1a1a1f;
+  background: #1e293b;
+  border-radius: 3px;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #06b6d4;
+  background: #475569;
   border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #64748b;
+}
+
+/* Medical glass morphism */
+.medical-glass {
+  background: #1e293b;
+  border: 1px solid #334155;
+  border-radius: 16px;
+}
+
+.medical-card {
+  background: #1e293b;
+  border: 1px solid #334155;
+  border-radius: 16px;
+  transition: all 0.2s ease;
+}
+
+.medical-card:hover {
+  border-color: #475569;
+  transform: translateY(-2px);
+}
+
+/* Medical button */
+.medical-btn {
+  background: #2563eb;
+  border: none;
+  border-radius: 10px;
+  padding: 10px 20px;
+  color: white;
+  font-weight: 500;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.medical-btn:hover {
+  opacity: 0.9;
+}
+
+.medical-btn-outline {
+  background: transparent;
+  border: 1px solid #475569;
+  border-radius: 10px;
+  padding: 10px 20px;
+  color: #94a3b8;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.medical-btn-outline:hover {
+  border-color: #2563eb;
+  color: #2563eb;
+}
+
+/* Medical badge */
+.medical-badge {
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 500;
+}
+
+.badge-critical {
+  background: rgba(220, 38, 38, 0.15);
+  color: #ef4444;
+}
+
+.badge-warning {
+  background: rgba(245, 158, 11, 0.15);
+  color: #f59e0b;
+}
+
+.badge-stable {
+  background: rgba(16, 185, 129, 0.15);
+  color: #10b981;
+}
+
+.badge-info {
+  background: rgba(37, 99, 235, 0.15);
+  color: #3b82f6;
+}
+
+/* Medical input */
+.medical-input {
+  background: #0f172a;
+  border: 1px solid #334155;
+  border-radius: 10px;
+  padding: 12px 16px;
+  color: #f1f5f9;
+  font-size: 14px;
+  outline: none;
+  transition: all 0.2s;
+}
+
+.medical-input:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.2);
+}
+
+.medical-input::placeholder {
+  color: #475569;
+}
+
+/* Medical stats card */
+.medical-stat {
+  background: #1e293b;
+  border-radius: 16px;
+  padding: 20px;
+  border-bottom: 3px solid #2563eb;
+}
+
+/* Medical divider */
+.medical-divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #334155, transparent);
+  margin: 20px 0;
 }
