@@ -4,7 +4,7 @@
 MediTrack is a full-stack healthcare web application designed to connect patients, doctors, and hospital administrators on a unified platform. It enables efficient appointment booking, AI-powered symptom analysis, real-time hospital bed tracking, video consultations, and role-based dashboards.
 
 ## Live Demo
-medi-track-pi-pied.vercel.app
+[medi-track-pi-pied.vercel.app](https://medi-track-pi-pied.vercel.app/)
 
 ## Tech Stack
 - Frontend: Next.js 14, React, TypeScript
