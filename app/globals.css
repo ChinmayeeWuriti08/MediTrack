@@ -6,140 +6,239 @@
 
 body {
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  background: #0f172a;
-  color: #f1f5f9;
+  background: #0a0e1a;
+  color: #e8edf5;
+  line-height: 1.6;
 }
 
-/* Medical theme scrollbar */
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom scrollbar - subtle and clean */
 ::-webkit-scrollbar {
   width: 6px;
   height: 6px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #1e293b;
-  border-radius: 3px;
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 10px;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #475569;
-  border-radius: 3px;
+  background: rgba(100, 200, 255, 0.3);
+  border-radius: 10px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #64748b;
+  background: rgba(100, 200, 255, 0.5);
 }
 
-/* Medical glass morphism */
+/* === Futuristic Glass Cards === */
 .medical-glass {
-  background: #1e293b;
-  border: 1px solid #334155;
-  border-radius: 16px;
+  background: rgba(20, 30, 50, 0.6);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(100, 200, 255, 0.12);
+  border-radius: 20px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+}
+
+.medical-glass:hover {
+  border-color: rgba(100, 200, 255, 0.25);
+  box-shadow: 0 8px 40px rgba(100, 200, 255, 0.08);
 }
 
 .medical-card {
-  background: #1e293b;
-  border: 1px solid #334155;
-  border-radius: 16px;
-  transition: all 0.2s ease;
+  background: rgba(20, 30, 50, 0.5);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 20px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
 }
 
 .medical-card:hover {
-  border-color: #475569;
-  transform: translateY(-2px);
+  border-color: rgba(100, 200, 255, 0.2);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(100, 200, 255, 0.06);
 }
 
-/* Medical button */
+/* === Glow Buttons - Soft & Accessible === */
 .medical-btn {
-  background: #2563eb;
+  background: linear-gradient(135deg, #4facfe, #00c6fb);
   border: none;
-  border-radius: 10px;
-  padding: 10px 20px;
-  color: white;
-  font-weight: 500;
+  border-radius: 12px;
+  padding: 12px 28px;
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 14px;
   cursor: pointer;
-  transition: opacity 0.2s;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 20px rgba(79, 172, 254, 0.25);
+  letter-spacing: 0.3px;
 }
 
 .medical-btn:hover {
-  opacity: 0.9;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(79, 172, 254, 0.35);
+}
+
+.medical-btn:active {
+  transform: translateY(0);
 }
 
 .medical-btn-outline {
   background: transparent;
-  border: 1px solid #475569;
-  border-radius: 10px;
-  padding: 10px 20px;
-  color: #94a3b8;
+  border: 1px solid rgba(100, 200, 255, 0.25);
+  border-radius: 12px;
+  padding: 12px 28px;
+  color: #b0c8e0;
   cursor: pointer;
-  transition: all 0.2s;
-}
-
-.medical-btn-outline:hover {
-  border-color: #2563eb;
-  color: #2563eb;
-}
-
-/* Medical badge */
-.medical-badge {
-  padding: 4px 12px;
-  border-radius: 20px;
-  font-size: 11px;
+  transition: all 0.3s ease;
   font-weight: 500;
 }
 
+.medical-btn-outline:hover {
+  border-color: #4facfe;
+  color: #4facfe;
+  box-shadow: 0 0 30px rgba(79, 172, 254, 0.08);
+}
+
+/* === Badges - Clear & Accessible === */
+.medical-badge {
+  padding: 4px 14px;
+  border-radius: 50px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
 .badge-critical {
-  background: rgba(220, 38, 38, 0.15);
-  color: #ef4444;
+  background: rgba(255, 100, 100, 0.15);
+  color: #ff6b6b;
+  border: 1px solid rgba(255, 100, 100, 0.15);
 }
 
 .badge-warning {
-  background: rgba(245, 158, 11, 0.15);
-  color: #f59e0b;
+  background: rgba(255, 200, 50, 0.13);
+  color: #ffd93d;
+  border: 1px solid rgba(255, 200, 50, 0.12);
 }
 
 .badge-stable {
-  background: rgba(16, 185, 129, 0.15);
-  color: #10b981;
+  background: rgba(80, 220, 180, 0.13);
+  color: #50dcb4;
+  border: 1px solid rgba(80, 220, 180, 0.12);
 }
 
 .badge-info {
-  background: rgba(37, 99, 235, 0.15);
-  color: #3b82f6;
+  background: rgba(79, 172, 254, 0.13);
+  color: #4facfe;
+  border: 1px solid rgba(79, 172, 254, 0.12);
 }
 
-/* Medical input */
+/* === Inputs - Clean & Readable === */
 .medical-input {
-  background: #0f172a;
-  border: 1px solid #334155;
-  border-radius: 10px;
-  padding: 12px 16px;
-  color: #f1f5f9;
-  font-size: 14px;
+  background: rgba(10, 14, 26, 0.6);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  padding: 14px 18px;
+  color: #e8edf5;
+  font-size: 15px;
   outline: none;
-  transition: all 0.2s;
+  transition: all 0.3s ease;
 }
 
 .medical-input:focus {
-  border-color: #2563eb;
-  box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.2);
+  border-color: rgba(79, 172, 254, 0.4);
+  box-shadow: 0 0 0 4px rgba(79, 172, 254, 0.08);
 }
 
 .medical-input::placeholder {
-  color: #475569;
+  color: rgba(255, 255, 255, 0.25);
 }
 
-/* Medical stats card */
+/* === Stats Cards - Glowing subtle === */
 .medical-stat {
-  background: #1e293b;
-  border-radius: 16px;
-  padding: 20px;
-  border-bottom: 3px solid #2563eb;
+  background: rgba(20, 30, 50, 0.5);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: 20px;
+  padding: 24px;
+  border: 1px solid rgba(100, 200, 255, 0.08);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease;
 }
 
-/* Medical divider */
+.medical-stat:hover {
+  border-color: rgba(100, 200, 255, 0.15);
+}
+
+/* === Divider === */
 .medical-divider {
   height: 1px;
-  background: linear-gradient(90deg, transparent, #334155, transparent);
-  margin: 20px 0;
+  background: linear-gradient(90deg, transparent, rgba(100, 200, 255, 0.15), transparent);
+  margin: 24px 0;
+}
+
+/* === Futuristic Grid Glow === */
+.medical-grid-glow {
+  background: radial-gradient(ellipse at 50% 0%, rgba(79, 172, 254, 0.03) 0%, transparent 70%);
+}
+
+/* === Text Selection - Accessible === */
+::selection {
+  background: rgba(79, 172, 254, 0.25);
+  color: #ffffff;
+}
+
+/* === Focus States - For Accessibility === */
+*:focus-visible {
+  outline: 2px solid #4facfe;
+  outline-offset: 2px;
+}
+
+/* === High Contrast Mode Friendly === */
+@media (prefers-contrast: high) {
+  .medical-glass,
+  .medical-card,
+  .medical-stat {
+    background: #141e33;
+    border-color: #4a6a8a;
+  }
+  
+  .medical-btn {
+    background: #4facfe;
+    color: #000;
+  }
+  
+  .medical-input {
+    background: #0a0e1a;
+    border-color: #4a6a8a;
+  }
+}
+
+/* === Reduced Motion === */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* === Glow Animation (Subtle) === */
+@keyframes glowPulse {
+  0%, 100% { opacity: 0.6; }
+  50% { opacity: 1; }
+}
+
+.glow-pulse {
+  animation: glowPulse 3s ease-in-out infinite;
 }
